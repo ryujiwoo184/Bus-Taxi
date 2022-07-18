@@ -1,11 +1,11 @@
 
 public class Bus extends Transportation implements Operatable, BreakTime, PassengerRide, OilWarn{
-    public Bus(int num, int oil, int speed, int max_passenger) {
-        super(num, oil, speed, max_passenger);
+    public Bus(int num, int oil, int speed, int speedVar, int max_passenger) {
+        super(num, oil, speed, speedVar, max_passenger);
     }
 
     public Bus(int num){
-            this(num,100,0,30);
+            this(num,100,0, 0,30);
         int[] bus_group = new int[num];
         for (int i = 0; i < num; i++) {
             bus_group[i] = (num % 2 == 0) ? 1000 + i : 10 + i;
@@ -23,18 +23,22 @@ public class Bus extends Transportation implements Operatable, BreakTime, Passen
 
     @Override
     public void breaktime() {
+        oil+=10;
 
     }
 
     @Override
     public void oilwarn() {
-
+        System.out.println("주유 필요!!");
+        breaktime();
     }
 
     @Override
     public void operate(int x) {
         oil -= x;
         System.out.println("주유량: -"+x);
+        if (oil<10){oilwarn();}
+        breaktime();
 
     }
 

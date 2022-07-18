@@ -1,5 +1,5 @@
 public class Taxi extends Transportation implements OilWarn,Operatable,PassengerRide,BreakTime {
-    public Taxi(int num, int oil, int speed, int max_passenger) {
+    public Taxi(int num, int oil, int speed, int speedVar, int max_passenger) {
         super(num, oil, speed, max_passenger);
     }
 
