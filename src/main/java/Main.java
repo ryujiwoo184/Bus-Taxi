@@ -3,9 +3,6 @@
 
 public class Main {
     public static void main(String[] args) {
-        for (Bus.Status type : Bus.Status.values()){
-            System.out.println(type);
-        };
         Bus bus = new Bus(2);
         bus.passengerride(2);
         bus.operate(50);
